@@ -73,7 +73,7 @@ def HierarchicalClustering(data, kClusters):
     hierarchical = AgglomerativeClustering(n_clusters=kClusters, linkage='ward')
     labels = hierarchical.fit_predict(data)
 
-    pca = PCA(n_components=2)  # Reduce to 2 dimensions for plotting
+    pca = PCA(n_components=2)
     reduced = pca.fit_transform(data)
 
     plt.figure(figsize=(12, 8))
@@ -87,7 +87,6 @@ def HierarchicalClustering(data, kClusters):
         color = bright_colors[label % len(bright_colors)]
         label_name = f'Cluster {label}'
         
-        # Plot points belonging to the current cluster
         cluster_points = reduced[labels == label]
         plt.scatter(cluster_points[:, 0], cluster_points[:, 1], c=color, label=label_name, alpha=0.6, edgecolors='k')
 
@@ -118,7 +117,6 @@ def GMM(data, components):
         color = bright_colors[label % len(bright_colors)]
         label_name = f'Cluster {label}'
         
-        # Plot points belonging to the current cluster
         cluster_points = reduced_data[gmm_labels == label]
         plt.scatter(cluster_points[:, 0], cluster_points[:, 1], c=color, label=label_name, alpha=0.6, edgecolors='k')
 
