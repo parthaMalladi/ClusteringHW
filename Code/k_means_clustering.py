@@ -94,10 +94,6 @@ if __name__ == '__main__':
         yum_tfidf['cuisine'] = yum_ingr['cuisine']
     if 'recipeName' not in yum_tfidf.columns:
         yum_tfidf['recipeName'] = yum_ingr['recipeName']
-    
-    # See number of rows and columns
-    print("\nyum_ingrX file:", yum_ingrX.shape)
-    print("\nyum_tfidf file:", yum_tfidf.shape)
 
     # convert data into numerical
     yum_ingrX_num = convertToNumerical(yum_ingrX)
